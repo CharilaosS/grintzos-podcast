@@ -45,8 +45,20 @@ def strip_accents(s):
     return "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn").lower()
 
 
+# Titles that explicitly name another speaker. Everything else on the site is
+# treated as π. Ἰωάννης Γρίντζος (his name is often omitted from the title).
+OTHER_SPEAKERS = re.compile(
+    r"βασιλειαδ"                       # π. Ἐμμανουήλ Βασιλειάδης
+    r"|γεροντισσ"                      # γερόντισσα Φιλοθέη
+    r"|σχολια του π\. συμεων"          # π. Συμεών Κραγιόπουλος (readings)
+    r"|^\d+\.\s*π\. τιμοθεος"          # "739. π. Τιμόθεος Παπαμιχαήλ – ..."
+    r"|γραπτα κειμενα του π ?\. τιμοθε" # readings from π. Τιμόθεος
+)
+
+
 def is_grintzos(title):
-    return "γριντζ" in strip_accents(title)
+    t = strip_accents(title)
+    return "γριντζ" in t or not OTHER_SPEAKERS.search(t)
 
 
 def scrape():

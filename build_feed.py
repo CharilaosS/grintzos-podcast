@@ -57,9 +57,22 @@ OTHER_SPEAKERS = re.compile(
 )
 
 
-def is_grintzos(title):
-    t = strip_accents(title)
-    return "γριντζ" in t or not OTHER_SPEAKERS.search(t)
+# From item 825 (April 2026) the "Καινή Διαθήκη" category was bulk-loaded with a
+# chapter-by-chapter New Testament study series from another source (4-5 uploads
+# per day). Excluded unless the title names π. Ἰωάννης.
+NT_SERIES_FROM = 825
+
+
+def is_grintzos(item):
+    t = strip_accents(item["title"])
+    if "γριντζ" in t:
+        return True
+    if OTHER_SPEAKERS.search(t):
+        return False
+    m = re.match(r"\s*(\d+)", t)
+    if m and int(m.group(1)) >= NT_SERIES_FROM and "καινη διαθηκη" in strip_accents(item["category"]):
+        return False
+    return True
 
 
 def scrape():
@@ -121,7 +134,7 @@ def main():
     allitems = scrape()
     if len(sys.argv) > 1:
         Path(sys.argv[1]).write_text(json.dumps(allitems, ensure_ascii=False, indent=1))
-    items = [i for i in allitems if is_grintzos(i["title"])]
+    items = [i for i in allitems if is_grintzos(i)]
     if len(items) < 50:
         sys.exit(f"only {len(items)} items scraped, refusing to overwrite feed")
 

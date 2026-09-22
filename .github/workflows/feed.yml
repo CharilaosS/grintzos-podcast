@@ -1,0 +1,26 @@
+name: Update podcast feed
+
+on:
+  schedule:
+    - cron: "30 4 * * *"   # 07:30 Athens (summer)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python build_feed.py
+      - run: |
+          git config user.name "feed-bot"
+          git config user.email "bot@github.com"
+          git add docs/feed.xml sizes.json
+          git commit -m "Update feed" || echo "No changes"
+          git push

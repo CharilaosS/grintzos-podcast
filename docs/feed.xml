@@ -10,7 +10,27 @@
 <itunes:image href="https://charilaoss.github.io/grintzos-podcast/cover.jpg"/>
 <itunes:category text="Religion &amp; Spirituality"><itunes:category text="Christianity"/></itunes:category>
 <itunes:explicit>false</itunes:explicit>
-<lastBuildDate>Sun, 27 Sep 2026 10:06:52 +0000</lastBuildDate>
+<lastBuildDate>Mon, 28 Sep 2026 11:06:34 +0000</lastBuildDate>
+<item>
+<title>1025. Ἡ μετάστασις τοῦ ἁγίου ἐνδόξου ἀποστόλου καί εὐαγγελιστοῦ Ἰωάννου τοῦ Θεολόγου</title>
+<guid isPermaLink="false">agia-triada-audio-11688</guid>
+<link>https://agia-triada-panorama.gr/audio/</link>
+<pubDate>Mon, 28 Sep 2026 12:00:00 +0300</pubDate>
+<description>Αγιολογικα · 28/09/2026 · https://agia-triada-panorama.gr/audio/</description>
+<enclosure url="https://agia-triada-panorama.gr/wp-content/uploads/2026/09/860925-26.mp3" length="11383212" type="audio/mpeg"/>
+<itunes:duration>11:51</itunes:duration>
+<itunes:episode>1025</itunes:episode>
+</item>
+<item>
+<title>1024. Ὁμιλία τοῦ π. Ἰωάννου Γρίντζου Κυριακή Α΄ Λουκᾶ (Ἡ θαυμαστή ἁλιεία)</title>
+<guid isPermaLink="false">agia-triada-audio-11683</guid>
+<link>https://agia-triada-panorama.gr/audio/</link>
+<pubDate>Mon, 28 Sep 2026 12:00:00 +0300</pubDate>
+<description>Κυριακοδρομιο · 28/09/2026 · https://agia-triada-panorama.gr/audio/</description>
+<enclosure url="https://agia-triada-panorama.gr/wp-content/uploads/2026/09/260927-%CE%9A%CE%94%CE%A1.mp3" length="17975224" type="audio/mpeg"/>
+<itunes:duration>18:43</itunes:duration>
+<itunes:episode>1024</itunes:episode>
+</item>
 <item>
 <title>1016. Ὁμιλία τοῦ π. Ἰωάννου Γρίντζου Κυριακή μετά τήν Ὕψωσιν</title>
 <guid isPermaLink="false">agia-triada-audio-11654</guid>
